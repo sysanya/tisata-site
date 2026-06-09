@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TM TISATA — обувь. Прямые поставки, честные цены. Женская и мужская." />
+  <title>TISATA — FOOTWEAR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+  <!-- Бегущая строка -->
+  <div class="ticker">
+    <div class="ticker__track" id="ticker">
+      <span>БЕСПЛАТНАЯ ДОСТАВКА ОТ 1 ПАРЫ</span><span>•</span>
+      <span>ОРИГИНАЛЬНОЕ КАЧЕСТВО</span><span>•</span>
+      <span>ОБМЕН И ВОЗВРАТ 14 ДНЕЙ</span><span>•</span>
+      <span>ЗАКАЗ В TELEGRAM ЗА 1 МИНУТУ</span><span>•</span>
+    </div>
+  </div>
+
+  <!-- Шапка -->
+  <header class="header" id="header">
+    <button class="header__menu-btn" id="menuBtn" aria-label="Меню">МЕНЮ</button>
+    <a href="#" class="header__logo" id="logo">TISATA</a>
+    <button class="header__cart-btn" id="cartBtn" aria-label="Корзина">
+      КОРЗИНА <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1 class="hero__title">
+      <span id="heroLine1">TISATA</span>
+      <span class="hero__title--outline" id="heroLine2">SS / 26</span>
+    </h1>
+    <p class="hero__subtitle" id="heroSubtitle"></p>
+    <a href="#catalog" class="hero__cta">СМОТРЕТЬ КОЛЛЕКЦИЮ</a>
+  </section>
+
+  <!-- Фильтры -->
+  <nav class="filters" id="filters">
+    <button class="filters__btn is-active" data-filter="all">ВСЁ</button>
+    <button class="filters__btn" data-filter="women">ЖЕНСКОЕ</button>
+    <button class="filters__btn" data-filter="men">МУЖСКОЕ</button>
+    <button class="filters__btn" data-filter="unisex">UNISEX</button>
+  </nav>
+
+  <!-- Каталог -->
+  <main class="catalog" id="catalog">
+    <div class="catalog__grid" id="grid"></div>
+  </main>
+
+  <!-- Футер -->
+  <footer class="footer">
+    <div class="footer__big" id="footerBig">TISATA</div>
+    <div class="footer__cols">
+      <div class="footer__col">
+        <h4>КОНТАКТЫ</h4>
+        <a id="footerTg" href="#" target="_blank" rel="noopener">Telegram</a>
+        <a id="footerIg" href="#" target="_blank" rel="noopener">Instagram</a>
+        <span id="footerCity"></span>
+      </div>
+      <div class="footer__col">
+        <h4>ПОКУПАТЕЛЯМ</h4>
+        <span>Доставка по всей России</span>
+        <span>Обмен и возврат 14 дней</span>
+        <span>Оплата при получении / переводом</span>
+      </div>
+      <div class="footer__col">
+        <h4>О БРЕНДЕ</h4>
+        <span>TM TISATA</span>
+        <span>Прямые поставки обуви</span>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span id="year"></span> TM TISATA</span>
+      <span>Сделано без маркетплейсов</span>
+    </div>
+  </footer>
+
+  <!-- Оверлей карточки товара -->
+  <div class="product-modal" id="productModal" aria-hidden="true">
+    <div class="product-modal__backdrop" data-close></div>
+    <div class="product-modal__panel" role="dialog" aria-modal="true">
+      <button class="product-modal__close" data-close aria-label="Закрыть">ЗАКРЫТЬ ✕</button>
+      <div class="product-modal__body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Корзина -->
+  <div class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <div class="cart-drawer__backdrop" data-cart-close></div>
+    <aside class="cart-drawer__panel" role="dialog" aria-modal="true">
+      <div class="cart-drawer__head">
+        <span>КОРЗИНА</span>
+        <button data-cart-close aria-label="Закрыть">✕</button>
+      </div>
+      <div class="cart-drawer__items" id="cartItems"></div>
+      <div class="cart-drawer__foot">
+        <div class="cart-drawer__total">
+          <span>ИТОГО</span>
+          <span id="cartTotal">0 ₽</span>
+        </div>
+        <button class="cart-drawer__checkout" id="checkoutBtn">ОФОРМИТЬ В TELEGRAM</button>
+        <p class="cart-drawer__note">Заказ откроется в Telegram готовым сообщением — останется отправить.</p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Тосты -->
+  <div class="toast" id="toast"></div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
