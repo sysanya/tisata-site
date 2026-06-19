@@ -491,11 +491,37 @@
     toastTimer = setTimeout(() => t.classList.remove("is-show"), 2200);
   }
 
+  // ---------- Диагностика: показать ошибку прямо на странице ----------
+  function showDebug(label, err) {
+    try {
+      var g = document.getElementById("grid");
+      if (!g) return;
+      var msg = (err && (err.message || err)) + "";
+      var stack = (err && err.stack) ? ("\n\n" + err.stack) : "";
+      g.innerHTML =
+        '<div style="padding:30px 22px;grid-column:1/-1;color:#c0392b;font-size:13px;' +
+        'line-height:1.5;white-space:pre-wrap;font-family:monospace;border:1px solid #c0392b;">' +
+        "[DEBUG] " + label + ": " + msg + stack +
+        "\n\nCONFIG: " + (typeof CONFIG !== "undefined" ? "ok" : "UNDEFINED") +
+        "\nPRODUCTS: " + (typeof PRODUCTS !== "undefined" ? PRODUCTS.length : "UNDEFINED") +
+        "</div>";
+    } catch (e) {}
+  }
+  window.addEventListener("error", function (e) {
+    showDebug("window.error", e.error || e.message);
+  });
+
   // ---------- Старт ----------
-  applyConfig();
-  initFilters();
-  initOverlays();
-  renderCart();
-  renderCatalog(); // сразу показываем локальные данные
-  loadProducts().then(() => renderCatalog()); // затем обновляем из Google-таблицы, если подключена
+  try {
+    applyConfig();
+    initFilters();
+    initOverlays();
+    renderCart();
+    renderCatalog(); // сразу показываем локальные данные
+    loadProducts()
+      .then(() => renderCatalog()) // затем обновляем из Google-таблицы, если подключена
+      .catch((e) => showDebug("loadProducts", e));
+  } catch (err) {
+    showDebug("init", err);
+  }
 })();
