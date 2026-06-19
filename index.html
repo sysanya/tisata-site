@@ -114,6 +114,24 @@
   <!-- Тосты -->
   <div class="toast" id="toast"></div>
 
+  <noscript>
+    <div style="padding:20px;background:#c0392b;color:#fff;text-align:center;font-weight:700;">
+      JavaScript отключён в браузере — включите его, чтобы увидеть товары.
+    </div>
+  </noscript>
+
+  <script>
+    (function () {
+      var g = document.getElementById("grid");
+      if (g) {
+        g.innerHTML =
+          '<div style="padding:30px 22px;grid-column:1/-1;color:#1a7f37;font-weight:700;' +
+          'font-family:monospace;font-size:13px;border:1px solid #1a7f37;">' +
+          "[INLINE-JS OK] встроенный скрипт выполнился (diag-2). Сейчас должен отработать app.js…" +
+          "</div>";
+      }
+    })();
+  </script>
   <script src="assets/js/config.js"></script>
   <script src="assets/js/products.js"></script>
   <script src="assets/js/app.js"></script>
