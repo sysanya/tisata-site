@@ -27,5 +27,5 @@ const CONFIG = {
   // Вставьте сюда ссылку на ОПУБЛИКОВАННУЮ таблицу в формате CSV
   // (см. README, раздел «Управление товарами»). Пока поле пустое —
   // сайт берёт товары из файла products.js.
-  sheetCsvUrl: "",
+  sheetCsvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTc_MeHhzUNw5fTvpf4AEaC0o65GNtWF2IclKyaaVZb-mnnEB33MfTs_0npViz3yAFdfTiiXaeML_Z_/pub?output=csv",
 };
