@@ -1,0 +1,9 @@
+{
+  "name": "tisata-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TM TISATA — статический сайт-магазин (HTML/CSS/JS, без сборки)",
+  "scripts": {
+    "build": "echo 'static site — no build step needed'"
+  }
+}
