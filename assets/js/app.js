@@ -443,9 +443,10 @@
     } catch (e) { /* без буфера обмена — текст всё равно в подсказке */ }
 
     if (CONFIG.telegram) {
-      // открываем прямой чат с магазином; заказ уже в буфере — вставить и отправить
-      window.open("https://t.me/" + CONFIG.telegram, "_blank");
-      toast(copied ? "ЗАКАЗ СКОПИРОВАН — ВСТАВЬТЕ В ЧАТ И ОТПРАВЬТЕ" : "ОТКРЫВАЕМ TELEGRAM…");
+      // открываем чат с магазином — текст заказа сразу подставляется в поле ввода (Telegram ?text=)
+      const url = "https://t.me/" + CONFIG.telegram + "?text=" + encodeURIComponent(text);
+      window.open(url, "_blank");
+      toast("ОТКРЫВАЕМ TELEGRAM — ПРОВЕРЬТЕ ЗАКАЗ И НАЖМИТЕ ОТПРАВИТЬ");
     } else {
       toast("TELEGRAM НЕ НАСТРОЕН");
     }
