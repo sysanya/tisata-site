@@ -426,10 +426,6 @@
     });
     lines.push("");
     lines.push(`Итого: ${money(total)}`);
-    lines.push("");
-    lines.push("Моё имя: ");
-    lines.push("Город / адрес доставки: ");
-    lines.push("Телефон: ");
 
     const text = lines.join("\n");
 
